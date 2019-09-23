@@ -267,7 +267,6 @@ export class Character implements OnInit, OnDestroy {
 
 		let last = Date.now();
 
-		(window as any).character = this;
 		return loadAndInitSpriteSheets().then(() => {
 			this.loaded = true;
 			this.interval = setInterval(() => {
