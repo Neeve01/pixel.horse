@@ -28,6 +28,7 @@ import { isFileSaverSupported, createExpression, readFileAsText } from '../../..
 import { emptyTag, getAvailableTags } from '../../../common/tags';
 import { ButtMarkEditorState } from '../../shared/butt-mark-editor/butt-mark-editor';
 import { parseColorWithAlpha } from '../../../common/color';
+import { randomizePony } from '../../../client/randomizer';
 
 const frontHoofTitles = ['', 'Fetlocks', 'Paws', 'Claws', ''];
 const backHoofTitles = ['', 'Fetlocks', 'Paws', '', ''];
@@ -266,6 +267,7 @@ export class Character implements OnInit, OnDestroy {
 
 		let last = Date.now();
 
+		(window as any).character = this;
 		return loadAndInitSpriteSheets().then(() => {
 			this.loaded = true;
 			this.interval = setInterval(() => {
@@ -493,6 +495,15 @@ export class Character implements OnInit, OnDestroy {
 
 			alert(`Imported ${imported} ponies`);
 		}
+	}
+
+	get canRandomize() {
+		return true;
+	}
+
+	randomize() {
+		randomizePony(this.pony);
+		this.changed();
 	}
 }
 

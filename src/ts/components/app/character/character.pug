@@ -31,6 +31,8 @@ page-loader(*ngIf="!playing")
 					| Revert
 				button.btn.btn-lg.btn-default.ml-2([disabled]="!canSave" (click)="save()" aria-label="Save character")
 					| Save
+				button.btn.btn-lg.btn-default.ml-2([disabled]="!canRandomize" (click)="randomize()" aria-label="Randomize character")
+					| Randomize
 
 			play-box(label="Save & Play" [(error)]="error")
 			play-notice

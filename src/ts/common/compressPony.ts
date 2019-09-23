@@ -109,7 +109,7 @@ function readTimes(read: ReadBits, count: number, bitsPerItem: number): number[]
 }
 
 // NOTE: do not reorder or remove
-const setFields: SetDefinition[] = [
+export const setFields: SetDefinition[] = [
 	{ name: 'extraAccessory', sets: mergedExtraAccessories!, preserveOnZero: true },
 	{ name: 'nose', sets: sprites.noses[0]!, preserveOnZero: true },
 	{ name: 'ears', sets: sprites.ears!, preserveOnZero: true },
@@ -144,7 +144,7 @@ const setFields: SetDefinition[] = [
 	},
 ];
 
-const booleanFields: FieldDefinition<boolean>[] = [
+export const booleanFields: FieldDefinition<boolean>[] = [
 	{ name: 'customOutlines' },
 	{ name: 'lockEyes' },
 	{ name: 'lockEyeColor' },
@@ -164,7 +164,7 @@ const booleanFields: FieldDefinition<boolean>[] = [
 	{ name: 'darkenLockedOutlines', omit: info => !info.freeOutlines },
 ];
 
-const numberFields: FieldDefinition<number>[] = [
+export const numberFields: FieldDefinition<number>[] = [
 	{ name: 'eyelashes' },
 	{ name: 'eyeOpennessRight' },
 	{ name: 'eyeOpennessLeft', omit: info => !!info.lockEyes },
@@ -173,7 +173,7 @@ const numberFields: FieldDefinition<number>[] = [
 	{ name: 'freckles', dontSave: true }, // TODO: remove
 ];
 
-const colorFields: FieldDefinition<number>[] = [
+export const colorFields: FieldDefinition<number>[] = [
 	{ name: 'coatFill' },
 	{ name: 'coatOutline', omit: info => !info.customOutlines || !!info.lockCoatOutline },
 	{ name: 'eyeColorRight' },
@@ -187,7 +187,7 @@ const colorFields: FieldDefinition<number>[] = [
 	{ name: 'magicColor', default: WHITE },
 ];
 
-const omittableFields: FieldDefinition<any>[] = [
+export const omittableFields: FieldDefinition<any>[] = [
 	...setFields,
 	...booleanFields,
 	...numberFields,
